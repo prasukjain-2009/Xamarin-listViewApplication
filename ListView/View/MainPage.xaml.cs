@@ -23,7 +23,7 @@ namespace ListView
                 return;
             }
             Person person = e.SelectedItem as Person;
-            DisplayAlert("Selected", person.LastName, "Cancel");
+            DisplayAlert("Selected", person.FirstName, "Cancel");
         }
     }
 }

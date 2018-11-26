@@ -1,5 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:local="clr-namespace:ListView" x:Class="ListView.MainPage">
+<ContentPage 
+    xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    xmlns:local="clr-namespace:ListView" 
+    xmlns:conveters="clr-namespace:ListView.Converter"
+    x:Class="ListView.MainPage">
+    <ContentPage.Resources>
+        <conveters:DoubleToIntConverter
+            x:Key="doubleToIntConverter"/>
+    </ContentPage.Resources>
     <StackLayout Padding="20,50,20,0">
         <ListView 
             ItemsSource="{Binding People}"
@@ -21,11 +30,14 @@
                                         FontAttributes="Bold"/>
                                 </StackLayout>
                                 <Label
-                                Text="{Binding Address}"
+                                Text="{Binding PhoneNumber}"
                                 FontSize="15"/>
                             </StackLayout>
                         </ContentView>
                     </ViewCell>
+                    <!--<TextCell
+                        Text="{Binding Name}"
+                        Detail="{Binding Age, Converter={StaticResource doubleToIntConverter}}"/>-->
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
